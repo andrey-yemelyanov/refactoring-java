@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Represents a customer renting movies.
@@ -34,7 +35,7 @@ public class Customer {
      */
     public void printStatement(Writer writer) throws IOException{
         writer.write(String.format("Rental Record for %s", name));
-        writer.write("\n");
+        writer.write("\n"); // note: special chars like \n could be converted to e.g. <br/> in the Writer implementation
 
         var total = 0.0;
         var freqPts = 0;
@@ -47,11 +48,11 @@ public class Customer {
             writer.write("\t");
             writer.write(rental.movieTitle());
             writer.write("\t");
-            writer.write(String.format("%.1f", thisAmount));
+            writer.write(String.format(Locale.US, "%.1f", thisAmount));
             writer.write("\n");
         }
 
-        writer.write(String.format("Amount owed is %.1f", total));
+        writer.write(String.format(Locale.US, "Amount owed is %.1f", total));
         writer.write("\n");
         writer.write(String.format("You earned %d frequent points", freqPts));
         writer.write("\n");
@@ -59,6 +60,10 @@ public class Customer {
         writer.flush();
     }
 
+    /**
+     * Convenience method that prints customer statement to a raw string.
+     * @throws IOException if IO error occurs
+     */
     public String printStatement() throws IOException {
         var sw = new StringWriter();
         printStatement(sw);

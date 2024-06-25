@@ -28,10 +28,10 @@ Most importantly the printStatement() method is now stable. If you want to add a
 PrintWriter out = new PrintWriter(someSocket.getOutputStream());
 customer.printStatement(out)
 
-All of that makes code cleaner and more test-friendly. We can now completely isolate tests for each type of a movie.
+All of that makes code cleaner and more test-friendly. We can now completely isolate unit tests for each type of a movie.
 
 PS: Usually I would create a Maven project with the src and test folders but I just wanted to focus on the actual object-oriented
-design here.
+design here. And I am relying on the Main class as a rudimentary testing framework.
 
 ## To run the test:
 
