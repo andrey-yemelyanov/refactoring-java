@@ -4,12 +4,12 @@ import java.util.List;
 public class Main {
 
   public static void main(String[] args) throws IOException {
-    final String expected = "Rental Record for C. U. Stomer\n\tYou've Got Mail\t3.5\n\tMatrix\t2.0\nAmount owed is 5.5\nYou earned 2 frequent points\n";
+    final String expected = "Rental Record for C. U. Stomer\n\tYou've Got Mail\t3.5\n\tMatrix Revolutions\t12.0\nAmount owed is 15.5\nYou earned 3 frequent points\n";
 
     var customer = new Customer("C. U. Stomer", 
       List.of(
         new MovieRental(new RegularMovie("F001", "You've Got Mail"), 3),
-        new MovieRental(new RegularMovie("F002", "Matrix"), 1)));
+        new MovieRental(new NewMovie("F002", "Matrix Revolutions"), 4)));
 
     var actual = customer.printStatement();
 
@@ -19,4 +19,6 @@ public class Main {
 
     System.out.println("Success");
   }
+
+
 }
