@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.io.StringWriter;
 import java.io.Writer;
 import java.util.List;
 
@@ -56,5 +57,11 @@ public class Customer {
         writer.write("\n");
         
         writer.flush();
+    }
+
+    public String printStatement() throws IOException {
+        var sw = new StringWriter();
+        printStatement(sw);
+        return sw.toString();
     }
 }

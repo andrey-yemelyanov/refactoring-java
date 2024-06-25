@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.io.StringWriter;
 import java.util.List;
 
 public class Main {
@@ -12,9 +11,7 @@ public class Main {
         new MovieRental(new RegularMovie("F001", "You've Got Mail"), 3),
         new MovieRental(new RegularMovie("F002", "Matrix"), 1)));
 
-    var sw = new StringWriter();
-    customer.printStatement(sw);
-    var actual = sw.toString();
+    var actual = customer.printStatement();
 
     if (!actual.equals(expected)) {
       throw new AssertionError("Expected: " + System.lineSeparator() + String.format(expected) + System.lineSeparator() + System.lineSeparator() + "Got: " + System.lineSeparator() + actual);

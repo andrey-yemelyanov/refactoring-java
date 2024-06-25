@@ -1,7 +1,7 @@
 import java.util.Objects;
 
 /**
- * Represents a rented movie for a specific number of days.
+ * Represents a movie rental over a specific number of days.
  */
 public class MovieRental {
     private final Movie movie;
@@ -17,6 +17,9 @@ public class MovieRental {
         this.days = days;
     }
 
+    /**
+     * Returns the title of the rented movie.
+     */
     public String movieTitle(){
         return movie.title();
     }
